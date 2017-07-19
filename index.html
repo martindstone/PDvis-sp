@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>vis</title>
+		<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<link href="vis.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container-fluid" style="padding-top: 20px;">									
+			<div id="controls" class="row">
+				<div class="col-md-4">
+					Since: <input type="text" id="since"> Until: <input type="text" id="until">
+				</div>
+				<div class="col-md-4">
+					<div class="btn-group" role="group" aria-label="metric" data-toggle="buttons">
+						<button type="button" id="count" class="btn btn-default metric-button active">Count</button>
+						<button type="button" id="MTTA" class="btn btn-default metric-button">MTTA</button>
+						<button type="button" id="MTTR" class="btn btn-default metric-button">MTTR</button>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div id="headline" class="col-md-12">
+				</div>
+			</div>
+			<div class="row">
+				<div id="weekly" class="col-md-12">
+					<h3>Incidents by week</h3>
+					<div></div>
+				</div>
+			</div>
+			<div class="row">
+				<div id="weeklymessages" class="col-md-12 messages">
+				</div>
+			</div>
+			<div class="row">
+				<div id="chart" class="col-md-12">
+					<h3>Incidents by hour and day</h3>
+					<div></div>
+				</div>
+			</div>
+			<div class="row">
+				<div id="punchcardmessages" class="col-md-12 messages">
+				</div>
+			</div>
+			<div class="row">
+				<div align="center" class="col-md-3">
+					<h3>Top services by incident count</h3>
+					<div id="topservices"></div>
+				</div>
+				<div align="center" class="col-md-3">
+					<h3>Top incident resolvers</h3>
+					<div id="topresolvers"></div>
+				</div>
+				<div align="center" class="col-md-3">
+					<h3>Top services by MTTR</h3>
+					<div id="topservicesmttr"></div>
+				</div>
+				<div align="center" class="col-md-3">
+					<h3>Top services by MTTA</h3>
+					<div id="topservicesmtta"></div>
+				</div>
+			</div>
+			<div class="row">
+				<p>&nbsp;</p>
+			</div>
+		</div>
+		<div class="busy">
+			<img class="spinner" src="spinner.gif">
+			<div class="progress">
+				<div id="progressbar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+					0%
+				</div>
+			</div>
+		</div>
+		
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="https://d3js.org/d3.v3.min.js"></script>
+		<script src="https://d3js.org/d3-array.v1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment-with-locales.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/async/2.1.2/async.js"></script>
+		<script src="common.js"></script>
+		<script src="vis.js"></script>
+	</body>
+</html>
