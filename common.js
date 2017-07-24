@@ -11,13 +11,15 @@ function PDRequest(token, endpoint, method, options) {
 		alert("Please put a token in the URL, like .../index.html?token=<YOUR_V2_API_TOKEN>");
 		return;
 	}
+	
+	var subdomain = location.host.split('.')[0];
 
 	var merged = $.extend(true, {}, {
 		type: method,
 		dataType: "json",
-		url: "https://api.pagerduty.com/" + endpoint,
+		url: "https://" + subdomain + ".pagerduty.com/" + endpoint,
 		headers: {
-			"Authorization": "Token token=" + token,
+//			"Authorization": "Token token=" + token,
 			"Accept": "application/vnd.pagerduty+json;version=2"
 		},
 		error: function(err, textStatus) {
