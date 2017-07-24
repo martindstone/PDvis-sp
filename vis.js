@@ -766,12 +766,13 @@ function fetch(since, until, callback) {
 		},
 		data: {
 			since: since.toISOString(),
-			until: until.toISOString()
+			until: until.toISOString(),
+			time_zone: "America/New_York"
 		},
 		dataType: "text"
 	}
 	
-	PDRequest(getParameterByName('token'), '/reports/raw/incidents.csv', 'GET', options);
+	PDRequest(getParameterByName('token'), 'reports/raw/incidents.csv', 'GET', options);
 }
 
 function main() {
